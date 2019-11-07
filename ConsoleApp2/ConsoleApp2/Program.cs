@@ -39,10 +39,17 @@ namespace HomeWork
 
 
         }
-        static void MatrixTriangular(int[,] x)
+        static void MatrixTriangular( ref int[,] x)
         {
 
+            for (int i = 1; i < 3; i++)
+            {
+                for (int j = 0; j < i; j++)
+                {
+                    x[i, j] = 0;
+                }
 
+            }
 
         }
         static void Main(string[] args)
@@ -84,14 +91,14 @@ namespace HomeWork
             */
 
 
-            int[,] x = new int[3, 3];
+            int[,] x1 = new int[3, 3];
 
 
             for (int i = 0; i < 3; i++)
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    x[i, j] = i + j;
+                    x1[i, j] = i + j;
                 }
 
             }
@@ -99,25 +106,19 @@ namespace HomeWork
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    Console.Write(x[i, j] + "  ");
-                }
-                Console.WriteLine();
-            }
-
-            for (int i = 1; i < 3; i++)
-            {
-                for (int j = 0; j < i; j++)
-                {
-                    x[i, j] = 0;
+                    Console.Write(x1[i, j] + "  ");
                 }
                 Console.WriteLine();
             }
 
+
+            MatrixTriangular(ref x1);
+            Console.WriteLine();
             for (int i = 0; i < 3; i++)
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    Console.Write(x[i, j] + "  ");
+                    Console.Write(x1[i, j] + "  ");
                 }
                 Console.WriteLine();
             }
@@ -125,7 +126,7 @@ namespace HomeWork
 
 
 
-            Console.ReadLine();
+            Console.ReadKey();
         }
     }
 }
